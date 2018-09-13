@@ -1,0 +1,2 @@
+# INI file may contain LDAP bind password
+getauthorizedkeys: non-standard-file-perm etc/getauthorizedkeys.ini 0660 != 0644
