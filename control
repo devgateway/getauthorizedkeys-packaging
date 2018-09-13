@@ -1,0 +1,22 @@
+Source: getauthorizedkeys
+Maintainer: Styopa Semenukha <ssemenukha@developmentgateway.org>
+Section: admin
+Priority: optional
+Build-Depends:
+ debhelper (>= 11),
+ cmake (>= 2.8.11),
+ make (>= 4),
+ gcc (>= 8),
+ libldap2-dev
+Standards-Version: 4.1.3
+Homepage: https://github.com/devgateway/getauthorizedkeys
+
+Package: getauthorizedkeys
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: ssh-server
+Suggests: libpam-param
+Description: Get SSH public keys from LDAP
+ This helper utility looks up the user's SSH public keys in LDAP, and prints
+ them to stdout. It's designed for use with AuthorizedKeysCommand
+ option of sshd.
