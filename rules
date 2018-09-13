@@ -1,14 +1,16 @@
 #!/usr/bin/make -f
 override_dh_auto_configure:
-	dh_auto_configure -- -DCONFIGFILE:FILE=/etc/getauthorizedkeys.ini
+	dh_auto_configure -- \
+	  -DCONFIGFILE:FILE=/etc/getauthorizedkeys.ini \
+	  -DLIBEXEC=/usr/lib/getauthorizedkeys \
 
 override_dh_fixperms:
 	dh_fixperms
 	chmod 0660 debian/getauthorizedkeys/etc/getauthorizedkeys.ini
 
 override_dh_install:
-	mkdir -p debian/tmp/etc
-	cp getauthorizedkeys.ini debian/tmp/etc
+	mkdir -p debian/getauthorizedkeys/etc
+	cp getauthorizedkeys.ini debian/getauthorizedkeys/etc
 	dh_install
 
 %:
